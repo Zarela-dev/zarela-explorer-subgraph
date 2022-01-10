@@ -1,4 +1,4 @@
-# zarela-subgraph
-zarela-subgraph
+# zarela-explorer-subgraph
+zarela-explorer-subgraph
 
 test webhook
