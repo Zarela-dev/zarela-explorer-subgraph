@@ -1,0 +1,62 @@
+type Request @entity {
+  id: ID!
+	txHash: ID!
+	requestNumber: BigInt!
+	timestamp: BigInt!
+	contributions: [Contribution!] @derivedFrom(field: "requestID")
+	confirmations: [Confirmation!] @derivedFrom(field: "requestID")
+	details: RequestDetail! @derivedFrom(field: "requestID")
+}
+
+type RequestDetail @entity {
+	id: ID!
+	requestID: Request!
+	blockNumber: BigInt!
+	title: String!
+	description: String!
+	requesterAddress: Bytes!
+	angelTokenPay: BigInt!
+	laboratoryTokenPay: BigInt!
+	totalTokenPay: BigInt!
+	totalContributors: BigInt!
+	totalContributed: Int!
+	zpaper: String!
+	timestamp: BigInt!
+	categories: String!
+	totalContributedCount: Int!
+}
+
+type Contribution @entity {
+	id: ID!
+	blockNumber: BigInt!
+	contributorAddress: Bytes!
+	hubAddress: Bytes!
+	requestID: Request!
+	contributorGetsReward: Boolean!
+	mageAddress: Bytes!
+	fileCID: String!
+	metadataCID: String!
+	difficulty: BigInt!
+	timestamp: BigInt!
+}
+
+type Confirmation @entity {
+	id: ID!
+	blockNumber: BigInt!
+	requestID: Request!
+	originalIndexes: [BigInt!]!
+	confirmCount: BigInt!
+	timestamp: BigInt!
+}
+
+type Transaction @entity {
+	id: ID!
+	from: Bytes!
+	to: Bytes
+	timestamp: BigInt!
+	method: String!
+	value: BigInt!
+	gasLimit: BigInt!
+	gasPrice: BigInt!
+	blockNumber: BigInt!
+}

@@ -1,0 +1,16 @@
+{
+  "name": "zarela-explorer",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ zarela-dev/Zarela Explorer",
+    "create-local": "graph create --node http://localhost:8020/ zarela-dev/Zarela Explorer",
+    "remove-local": "graph remove --node http://localhost:8020/ zarela-dev/Zarela Explorer",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 zarela-dev/Zarela Explorer"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.23.2",
+    "@graphprotocol/graph-ts": "0.23.1"
+  }
+}
